@@ -17,7 +17,7 @@ p {
 span {
   font-weight: 600;
   font-style: italic;
-  font-size: 14px;
+  font-size: 13px;
   color: rgb(107, 107, 107);
 }
 
@@ -34,7 +34,7 @@ span {
   height: 275px;
   background-color: beige;
   border-radius: 15px;
-  padding: 20px;
+  padding: 18px;
 }
 
 .main-container .container .left {
@@ -62,12 +62,11 @@ span {
 
 .main-container .container .right {
   width: 60%;
-  padding-left: 20px;
   float: right;
 }
 
 .main-container .container .right p {
   font-weight: bold;
-  font-size: 15px;
+  font-size: 13px;
   padding-top: 7px;
 }
