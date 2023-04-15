@@ -14,6 +14,13 @@ p {
   font-family: 'Poppins', sans-serif;
 }
 
+span {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 14px;
+  color: rgb(107, 107, 107);
+}
+
 .main-container {
   width: 90%;
   margin: 45px auto;
@@ -24,7 +31,7 @@ p {
 
 .main-container .container {
   width: 390px;
-  height: 250px;
+  height: 275px;
   background-color: beige;
   border-radius: 15px;
   padding: 20px;
@@ -36,21 +43,26 @@ p {
   float: left;
 }
 
+.main-container .container .left span {
+  width: 100;
+  display: flex;
+  justify-content: center;
+}
+
 .main-container .container .left img {
   width: 80%;
-  height: auto;
-  margin: 0 auto;
 }
 
 .main-container .container .left p {
   font-weight: bold;
   font-size: 17px;
   padding-top: 25px;
+  text-align: center;
 }
 
 .main-container .container .right {
   width: 60%;
-  padding-left: 10px;
+  padding-left: 20px;
   float: right;
 }
 
