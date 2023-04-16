@@ -38,43 +38,55 @@ requestAF.open(
 requestAF.send();
 
 const Response = (
-  req,
-  nam,
-  counTime,
-  official_name,
-  capital,
-  language,
-  currency,
-  area,
-  population
+  countryAPIRequest,
+  countryName,
+  countryFlag,
+  countryTime,
+  countryOfficialName,
+  countryCapital,
+  countryLanguage,
+  countryCurrency,
+  countryArea,
+  countryPopulation
 ) => {
-  let [data] = JSON.parse(req.responseText);
+  let [data] = JSON.parse(countryAPIRequest.responseText);
   let country_flag = `<img src="${data.flags.png}" alt="Flag"></img>`;
 
-  document.querySelector(nam).innerHTML = data.name.common;
-  document.querySelector(".left").insertAdjacentHTML("afterbegin", country_flag);
-  document.querySelector(counTime).innerHTML = new Date().toLocaleString({
-    timeZone: data.timezones,
-    timeStyle: "short",
-  });
-  document.querySelector(official_name).innerHTML = data.name.official;
-  document.querySelector(capital).innerHTML = data.capital;
+  document.querySelector(countryName).innerHTML = data.name.common;
+  document.querySelector(countryFlag).insertAdjacentHTML("afterbegin", country_flag);
+
+  let localTime = new Date();
+  let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
+  let countryTimeZoneArr = data.timezones[0].split("C");
+  let countryTimeZone = countryTimeZoneArr[1].replace(":", ".");
+  let otherCountriesTime = new Date(
+    utc + 3600000 * countryTimeZone
+  ).toLocaleString();
+
+  document.querySelector(countryTime).innerHTML = otherCountriesTime;
+  document.querySelector(countryOfficialName).innerHTML = data.name.official;
+  document.querySelector(countryCapital).innerHTML = data.capital;
+
   let lang = data.languages;
   let langArr = Object.values(lang);
-  document.querySelector(language).innerHTML = langArr;
+
+  document.querySelector(countryLanguage).innerHTML = langArr;
+
   let curr = data.currencies;
   let currArr = Object.values(curr);
+
   document.querySelector(
-    currency
+    countryCurrency
   ).innerHTML = `${currArr[0].name} (${currArr[0].symbol})`;
-  document.querySelector(area).innerHTML = data.area;
-  document.querySelector(population).innerHTML = data.population;
+  document.querySelector(countryArea).innerHTML = data.area;
+  document.querySelector(countryPopulation).innerHTML = data.population;
 };
 
 requestBD.addEventListener("load", function () {
   Response(
     requestBD,
     ".BD_Name",
+    ".BD_Flag",
     ".BD_Time",
     ".BD_Official_Name",
     ".BD_Capital",
@@ -89,6 +101,7 @@ requestPK.addEventListener("load", function () {
   Response(
     requestPK,
     ".PK_Name",
+    ".PK_Flag",
     ".PK_Time",
     ".PK_Official_Name",
     ".PK_Capital",
@@ -103,6 +116,7 @@ requestIN.addEventListener("load", function () {
   Response(
     requestIN,
     ".IN_Name",
+    ".IN_Flag",
     ".IN_Time",
     ".IN_Official_Name",
     ".IN_Capital",
@@ -117,6 +131,7 @@ requestNP.addEventListener("load", function () {
   Response(
     requestNP,
     ".NP_Name",
+    ".NP_Flag",
     ".NP_Time",
     ".NP_Official_Name",
     ".NP_Capital",
@@ -131,6 +146,7 @@ requestLK.addEventListener("load", function () {
   Response(
     requestLK,
     ".LK_Name",
+    ".LK_Flag",
     ".LK_Time",
     ".LK_Official_Name",
     ".LK_Capital",
@@ -145,6 +161,7 @@ requestAF.addEventListener("load", function () {
   Response(
     requestAF,
     ".AF_Name",
+    ".AF_Flag",
     ".AF_Time",
     ".AF_Official_Name",
     ".AF_Capital",

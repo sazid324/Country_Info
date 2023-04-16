@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap");
 
 * {
   margin: 0;
@@ -11,7 +11,7 @@ html {
 }
 
 p {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 span {
@@ -38,7 +38,7 @@ span {
 }
 
 .main-container .container .left {
-  width: 40%;
+  width: 42%;
   height: 100%;
   padding-right: 10px;
   float: left;
@@ -48,7 +48,13 @@ span {
   flex-direction: column;
 }
 
-.main-container .container .left img {
+.main-container .container .left span {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.main-container .container .left span img {
   width: 80%;
 }
 
@@ -60,8 +66,13 @@ span {
   text-align: center;
 }
 
+.main-container .container .left .countryTime {
+  font-family: "Lato", sans-serif;
+  font-size: 12px;
+}
+
 .main-container .container .right {
-  width: 60%;
+  width: 58%;
   float: right;
 }
 
