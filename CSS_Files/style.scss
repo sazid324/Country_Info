@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: rgb(41, 39, 39);
+}
+
+p {
+  font-family: "Poppins", sans-serif;
+}
+
+span {
+  font-weight: 600;
+  font-style: italic;
+  font-size: 13px;
+  color: rgb(107, 107, 107);
+}
+
+.main-container {
+  width: 90%;
+  margin: 45px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 1em;
+
+  & .container {
+    width: 390px;
+    height: 275px;
+    background-color: beige;
+    border-radius: 15px;
+    padding: 18px;
+
+    & .left {
+      width: 42%;
+      height: 100%;
+      padding-right: 10px;
+      float: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      & span {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        & img {
+          width: 80%;
+        }
+      }
+
+      & p {
+        font-weight: bold;
+        font-size: 17px;
+        padding-top: 20px;
+        padding-bottom: 10px;
+        text-align: center;
+      }
+
+      & .countryTime {
+        font-family: "Lato", sans-serif;
+        font-size: 12px;
+        font-weight: bold;
+      }
+    }
+
+    & .right {
+      width: 58%;
+      float: right;
+
+      & p {
+        font-weight: bold;
+        font-size: 13px;
+        padding-top: 7px;
+      }
+    }
+  }
+}

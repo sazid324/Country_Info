@@ -1,13 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato&family=Poppins&display=swap");
-
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: inherit;
 }
 
 html {
-  background-color: rgb(27, 27, 27);
+  box-sizing: border-box;
+}
+
+body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  background-color: rgb(41, 39, 39);
 }
 
 p {
@@ -28,7 +33,6 @@ span {
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1em;
 }
-
 .main-container .container {
   width: 390px;
   height: 275px;
@@ -36,7 +40,6 @@ span {
   border-radius: 15px;
   padding: 18px;
 }
-
 .main-container .container .left {
   width: 42%;
   height: 100%;
@@ -47,17 +50,14 @@ span {
   align-items: center;
   flex-direction: column;
 }
-
 .main-container .container .left span {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-
 .main-container .container .left span img {
   width: 80%;
 }
-
 .main-container .container .left p {
   font-weight: bold;
   font-size: 17px;
@@ -65,20 +65,17 @@ span {
   padding-bottom: 10px;
   text-align: center;
 }
-
 .main-container .container .left .countryTime {
   font-family: "Lato", sans-serif;
   font-size: 12px;
   font-weight: bold;
 }
-
 .main-container .container .right {
   width: 58%;
   float: right;
 }
-
 .main-container .container .right p {
   font-weight: bold;
   font-size: 13px;
   padding-top: 7px;
-}
+}/*# sourceMappingURL=style.css.map */
