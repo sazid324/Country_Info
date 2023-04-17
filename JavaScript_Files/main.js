@@ -91,6 +91,54 @@ const Response = (
   document.querySelector(countryPopulation).innerHTML = data.population;
 };
 
+// const mainDiv = document.querySelector(".main-container");
+
+// const Response = (countryAPIRequest) => {
+//   let [data] = JSON.parse(countryAPIRequest.responseText);
+
+//   const countryTimeFunction = () => {
+//     let countryTimeZoneArr = data.timezones[0].split("C");
+//     let countryTimeZone = countryTimeZoneArr[1].replace(":", ".");
+//     let localTime = new Date(); //Local date and time in my area or in my pc.
+//     let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
+//     let otherCountriesTime = new Date(
+//       utc + 3600000 * countryTimeZone
+//     ).toLocaleString();
+
+//     document.write(otherCountriesTime);
+//   };
+
+//   let countryLanguageFromGotAPI = data.languages;
+//   let ArrayOfCountryLanguageFromGotAPI = Object.values(
+//     countryLanguageFromGotAPI
+//   );
+
+//   let countryCurrencyFromGotAPI = data.currencies;
+//   let ArrayOfCountryCurrencyFromGotAPI = Object.values(
+//     countryCurrencyFromGotAPI
+//   );
+
+//   const HTMLData = `
+//     <div class="container">
+//         <div class="left">
+//           <div class="countryFlag"><img src="${data.flags.png}" alt="Flag"></img></div>
+//           <p class="countryName">${data.name.common}</p>
+//           <div class="countryTime">${countryTimeFunction}</div>
+//         </div>
+//         <div class="right">
+//           <p>Official Name : <span class="countryOfficialName">${data.name.official}</span></p>
+//           <p>Capital : <span class="countryCapital">${data.capital}</span></p>
+//           <p>Language : <span class="countryLanguage">${ArrayOfCountryLanguageFromGotAPI}</span></p>
+//           <p>Currency : <span class="countryCurrency">${ArrayOfCountryCurrencyFromGotAPI[0].name} (${ArrayOfCountryCurrencyFromGotAPI[0].symbol})</span></p>
+//           <p>Area : <span class="countryArea">${data.area}</span><span> km2</span></p>
+//           <p>Population : <span class="countryPopulation">${data.population}</span></p>
+//         </div>
+//       </div>
+//   `;
+
+//   mainDiv.insertAdjacentHTML("afterbegin",HTMLData);
+// };
+
 requestBD.addEventListener("load", function () {
   Response(
     requestBD,
