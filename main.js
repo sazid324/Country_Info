@@ -180,20 +180,3 @@ requestAF.addEventListener("load", function () {
     ".AF_Population"
   );
 });
-
-// const countryTimeFunction = () => {
-//   let localTime = new Date().toLocaleTimeString(); //Local date and time in my area or in my pc.
-//   // let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
-//   // let otherCountriesTime = new Date(utc + 3600000 * 4).toLocaleTimeString();
-
-//   console.log(localTime);
-// };
-
-// setInterval(countryTimeFunction(), 10);
-
-// const countryTimeFunction = () => {
-//   let localTime = new Date().toLocaleTimeString();
-//   console.log(localTime);
-// };
-
-// setInterval(countryTimeFunction, 1000);
