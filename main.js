@@ -1,3 +1,5 @@
+"use strict";
+
 let requestBD = new XMLHttpRequest();
 requestBD.open(
   "GET",
@@ -53,17 +55,24 @@ const Response = (
   let country_flag = `<img src="${data.flags.png}" alt="Flag"></img>`;
 
   document.querySelector(countryName).innerHTML = data.name.common;
-  document.querySelector(countryFlag).insertAdjacentHTML("afterbegin", country_flag);
+  document
+    .querySelector(countryFlag)
+    .insertAdjacentHTML("afterbegin", country_flag);
 
-  let localTime = new Date();
-  let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
-  let countryTimeZoneArr = data.timezones[0].split("C");
-  let countryTimeZone = countryTimeZoneArr[1].replace(":", ".");
-  let otherCountriesTime = new Date(
-    utc + 3600000 * countryTimeZone
-  ).toLocaleString();
+  function countryTimeFunction(){
+    let countryTimeZoneArr = data.timezones[0].split("C");
+    let countryTimeZone = countryTimeZoneArr[1].replace(":", ".");
+    let localTime = new Date(); //Local date and time in my area or in my pc.
+    let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
+    let otherCountriesTime = new Date(
+      utc + 3600000 * countryTimeZone
+    ).toLocaleString();
 
-  document.querySelector(countryTime).innerHTML = otherCountriesTime;
+    document.querySelector(countryTime).innerHTML = otherCountriesTime;
+  };
+
+  setInterval(countryTimeFunction, 1000); //Note: Must not use "()" while calling function in setInterval.
+
   document.querySelector(countryOfficialName).innerHTML = data.name.official;
   document.querySelector(countryCapital).innerHTML = data.capital;
 
@@ -171,3 +180,20 @@ requestAF.addEventListener("load", function () {
     ".AF_Population"
   );
 });
+
+// const countryTimeFunction = () => {
+//   let localTime = new Date().toLocaleTimeString(); //Local date and time in my area or in my pc.
+//   // let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
+//   // let otherCountriesTime = new Date(utc + 3600000 * 4).toLocaleTimeString();
+
+//   console.log(localTime);
+// };
+
+// setInterval(countryTimeFunction(), 10);
+
+// const countryTimeFunction = () => {
+//   let localTime = new Date().toLocaleTimeString();
+//   console.log(localTime);
+// };
+
+// setInterval(countryTimeFunction, 1000);
