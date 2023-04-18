@@ -52,24 +52,28 @@ const Response = (
   countryPopulation
 ) => {
   let [data] = JSON.parse(countryAPIRequest.responseText);
-  let country_flag = `<img src="${data.flags.png}" alt="Flag"></img>`;
 
   document.querySelector(countryName).innerHTML = data.name.common;
-  document
-    .querySelector(countryFlag)
-    .insertAdjacentHTML("afterbegin", country_flag);
 
-  function countryTimeFunction(){
-    let countryTimeZoneArr = data.timezones[0].split("C");
-    let countryTimeZone = countryTimeZoneArr[1].replace(":", ".");
-    let localTime = new Date(); //Local date and time in my area or in my pc.
-    let utc = localTime.getTime() + localTime.getTimezoneOffset() * 60000;
+  let country_flag = `<img src="${data.flags.png}" alt="Flag"></img>`;
+
+  document.querySelector(countryFlag)
+.insertAdjacentHTML("afterbegin", country_flag);
+
+  function countryTimeFunction() {
+    let countryTimeZoneArray = data.timezones[0].split("C");
+    let countryTimeArray = countryTimeZoneArray[1].split(":");
+    let myCountryLocalTime = new Date(); //Local date and time in my area or in my pc.
+    let utc =
+      myCountryLocalTime.getTime() +
+      myCountryLocalTime.getTimezoneOffset() * 60000;
     let otherCountriesTime = new Date(
-      utc + 3600000 * countryTimeZone
+      utc + countryTimeArray[0] * 3600000 + countryTimeArray[1] * 60000
     ).toLocaleString();
 
     document.querySelector(countryTime).innerHTML = otherCountriesTime;
-  };
+    // console.log(countryTimeArray);
+  }
 
   setInterval(countryTimeFunction, 1000); //Note: Must not use "()" while calling function in setInterval.
 

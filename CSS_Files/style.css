@@ -50,12 +50,12 @@ span {
   align-items: center;
   flex-direction: column;
 }
-.main-container .container .left span {
+.main-container .container .left .countryFlag {
   width: 100%;
   display: flex;
   justify-content: center;
 }
-.main-container .container .left span img {
+.main-container .container .left .countryFlag img {
   width: 80%;
 }
 .main-container .container .left p {
