@@ -95,7 +95,6 @@ const Response = (
   document.querySelector(countryPopulation).innerHTML = data.population;
 };
 
-// const mainDiv = document.querySelector(".main-container");
 
 // const Response = (countryAPIRequest) => {
 //   let [data] = JSON.parse(countryAPIRequest.responseText);
@@ -122,12 +121,12 @@ const Response = (
 //     countryCurrencyFromGotAPI
 //   );
 
-//   const HTMLData = `
+//   const HTMLStructureOfCountryInfo = `
 //     <div class="container">
 //         <div class="left">
 //           <div class="countryFlag"><img src="${data.flags.png}" alt="Flag"></img></div>
 //           <p class="countryName">${data.name.common}</p>
-//           <div class="countryTime">${countryTimeFunction}</div>
+//           <div class="countryTime">${setInterval(countryTimeFunction, 1000)}</div>
 //         </div>
 //         <div class="right">
 //           <p>Official Name : <span class="countryOfficialName">${data.name.official}</span></p>
@@ -140,7 +139,9 @@ const Response = (
 //       </div>
 //   `;
 
-//   mainDiv.insertAdjacentHTML("afterbegin",HTMLData);
+//   document
+//     .querySelector(".main-container")
+//     .insertAdjacentHTML("afterbegin", HTMLStructureOfCountryInfo);
 // };
 
 requestBD.addEventListener("load", function () {
